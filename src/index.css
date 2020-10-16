@@ -504,7 +504,7 @@ a.skip-main:focus, a.skip-main:active {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   width: 960px;
   height: 500px;
-  position: center;
+  position: right;
 }
 
 svg {
