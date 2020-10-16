@@ -1,11 +1,11 @@
 import React from 'react';
-
 import axios from 'axios';
 import {Pie} from 'react-chartjs-2';
 import PieSVG from './PieSVG';
-import PieClass from './PieClass';
+// import PieClass from './PieClass';
 
 export default class HomePage extends React.Component {
+    
 
     constructor(props){
         super(props);
@@ -16,6 +16,7 @@ export default class HomePage extends React.Component {
       } 
 
     componentDidMount() {
+       
         axios.get(`http://localhost:5000/budget`)
           .then(res => {
             const budgetData = res.data.myBudget;
@@ -41,13 +42,7 @@ export default class HomePage extends React.Component {
                       label:'Personal Budget Chart',
                       data: values ,
                       backgroundColor:[
-                    //    'rgba(255,105,145,0.6)',
-                    //    'rgba(155,100,210,0.6)',
-                    //    'rgba(90,178,255,0.6)',
-                    //    'rgba(240,134,67,0.6)',
-                    //    'rgba(120,120,120,0.6)',
-                    //    'rgba(250,55,197,0.6)'
-                    '#ffcd56',
+                  '#ffcd56',
                     '#ff6384',
                     '#36a2eb',
                     '#fd6b19',
@@ -64,6 +59,8 @@ export default class HomePage extends React.Component {
       }
  
     render() {
+        const {data} = this.props;
+        console.log(data);
         return (
             <div id="mainid">
             <div>
@@ -145,12 +142,7 @@ export default class HomePage extends React.Component {
                    
                        <h1>Chart</h1>
         
-                       {/* <p>
-                           <canvas id="myChart" width="300" height="120"></canvas>                  
-                           
-                       </p> */}
-                      
-                        <div>
+                       <div>
                               <Pie
                                 data={this.state.Data}
                                 options={{
@@ -166,17 +158,10 @@ export default class HomePage extends React.Component {
                                 }}
                                 />
                         </div>
-                   {/* <ul>
-                      { this.dataSource.labels.map(person => <li>{person.label}</li>)} 
-                   </ul> */}
-                   
+                                    
                        <h1>DJ3 Chart</h1>
                        
-                       {/* <div id="viz_area"></div>               
-                          
-                           <svg width="400" height="1"></svg> */}
-
-                          <div id="viz_area">
+                        <div id="viz_area">
                           <PieSVG
                             data={this.state.resultData}
                             width={400}
@@ -184,8 +169,7 @@ export default class HomePage extends React.Component {
                             innerRadius={80}
                             outerRadius={160}
                            /></div>  
-                           {/* {console.log(this.state.resultData)} */}
-                            
+                           
                             {/* <PieClass 
                             data={this.state.resultData}
                             width={400}

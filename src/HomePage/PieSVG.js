@@ -14,6 +14,8 @@ const Arc = ({ data, index, createArc, colors, format }) => (
         
       {/* {format(data.value)} */}
       {data.data.label}
+      
+      {"\n"+data.value}
     </text>
   </g>
 );
@@ -27,9 +29,7 @@ const Pie = props => {
     .arc()
     .innerRadius(props.innerRadius)
     .outerRadius(props.outerRadius);
-//   const colors = d3.scaleOrdinal(d3.schemeCategory10);
   const colors =d3.scaleOrdinal()
-  // .domain(this.dataSource.labels)
   .range([ '#ffcd56',
   '#ff6384',
   '#36a2eb',
